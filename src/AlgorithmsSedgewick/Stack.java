@@ -21,6 +21,12 @@ public class Stack<Item> implements Iterable<Item>
         first.next = oldfirst;
         N++;
     }
+
+    public Item peek() {
+        //Вернуть последний попавший в стек элемент
+        return first.item;
+    }
+
     public Item pop()
     {
         // Удаление элемента с верхушки стека
@@ -45,5 +51,13 @@ public class Stack<Item> implements Iterable<Item>
             current = current.next;
             return item;
         }
+    }
+
+    @Override
+    public String toString() {
+        return "Stack{" +
+                "first=" + first.item +
+                ", N=" + N +
+                '}';
     }
 }

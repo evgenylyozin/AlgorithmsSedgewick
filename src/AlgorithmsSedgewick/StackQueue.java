@@ -2,7 +2,7 @@ package AlgorithmsSedgewick;
 
 import java.util.Iterator;
 
-public class Queue<Item> implements Iterable<Item>
+public class StackQueue<Item> implements Iterable<Item>
 {
     private Node first;
     private Node last;
@@ -31,6 +31,24 @@ public class Queue<Item> implements Iterable<Item>
         Item item = first.item;
         first = first.next;
         if (isEmpty()) last = null;
+        N--;
+        return item;
+    }
+
+    public void push (Item item)
+    {   // Добавление элемента на верхушку стекоочереди
+        Node oldfirst = first;
+        first = new Node();
+        first.item = item;
+        first.next = oldfirst;
+        N++;
+    }
+
+    public Item pop()
+    {
+        // Удаление элемента с верхушки стекоочереди
+        Item item = first.item;
+        first = first.next;
         N--;
         return item;
     }
