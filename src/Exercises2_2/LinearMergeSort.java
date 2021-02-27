@@ -1,9 +1,9 @@
-package AlgorithmsSedgewick;
+package Exercises2_2;
 
 import edu.princeton.cs.algs4.In;
 import edu.princeton.cs.algs4.StdOut;
 
-public class MergeSort {
+public class LinearMergeSort {
     private static Comparable[] aux;
     public static void sort(Comparable[] a) {
         aux = new Comparable[a.length];
@@ -15,7 +15,8 @@ public class MergeSort {
         int mid = lo + (hi - lo)/2;
         sort(a,lo,mid);
         sort(a,mid+1,hi);
-        merge(a,lo,mid,hi);
+        if (a[mid].compareTo(a[mid+1])==1)
+            merge(a,lo,mid,hi);
     }
 
     public static void merge(Comparable[] a, int lo, int mid, int hi) {

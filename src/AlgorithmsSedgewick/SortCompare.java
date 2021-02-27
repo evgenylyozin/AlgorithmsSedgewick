@@ -1,5 +1,6 @@
 package AlgorithmsSedgewick;
 
+import Exercises2_2.MergeSortWithoutStaticArray;
 import edu.princeton.cs.algs4.StdOut;
 import edu.princeton.cs.algs4.StdRandom;
 import edu.princeton.cs.algs4.Stopwatch;
@@ -10,6 +11,7 @@ public class SortCompare {
         if(alg.equals("SelectionSort")) SelectionSort.sort(a);
         if(alg.equals("InsertionSort")) InsertionSort.sort(a);
         if(alg.equals("ShellSort")) ShellSort.sort(a);
+        if(alg.equals("MergeSort")) MergeSortWithoutStaticArray.sort(a);
         return timer.elapsedTime();
     }
     public static double timeRandomInput(String alg, int N, int T) {

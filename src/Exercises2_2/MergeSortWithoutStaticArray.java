@@ -1,24 +1,24 @@
-package AlgorithmsSedgewick;
+package Exercises2_2;
 
 import edu.princeton.cs.algs4.In;
 import edu.princeton.cs.algs4.StdOut;
 
-public class MergeSort {
-    private static Comparable[] aux;
-    public static void sort(Comparable[] a) {
-        aux = new Comparable[a.length];
-        sort(a,0,a.length-1);
+public class MergeSortWithoutStaticArray {
+    public static Comparable[] sort(Comparable[] a) {
+        Comparable[] aux = new Comparable[a.length];
+        sort(a,0,a.length-1, aux);
+        return aux;
     }
-    public static void sort(Comparable[] a, int lo, int hi) {
+    public static void sort(Comparable[] a, int lo, int hi, Comparable[] aux) {
         //Сортировка a[lo...hi].
         if (hi<=lo) return;
         int mid = lo + (hi - lo)/2;
-        sort(a,lo,mid);
-        sort(a,mid+1,hi);
-        merge(a,lo,mid,hi);
+        sort(a,lo,mid,aux);
+        sort(a,mid+1,hi,aux);
+        merge(a,lo,mid,hi,aux);
     }
 
-    public static void merge(Comparable[] a, int lo, int mid, int hi) {
+    public static void merge(Comparable[] a, int lo, int mid, int hi, Comparable[] aux) {
         //Слияние a[lo...mid], a[mid+1...hi].
         int i = lo, j = mid+1;
         for (int k = lo; k<=hi;k++)
